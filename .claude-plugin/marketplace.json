@@ -1,0 +1,14 @@
+{
+  "name": "one-stack",
+  "owner": {
+    "name": "Craig Russell Tiu"
+  },
+  "description": "Skills that improve the quality of agent results in any project, with any model, provider or harness.",
+  "plugins": [
+    {
+      "name": "one-stack",
+      "source": "./plugins/one-stack",
+      "description": "Skills that improve the quality of agent results in any project, with any model, provider or harness."
+    }
+  ]
+}

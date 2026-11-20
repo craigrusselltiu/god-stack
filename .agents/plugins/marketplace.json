@@ -1,0 +1,20 @@
+{
+  "name": "one-stack",
+  "interface": {
+    "displayName": "One Stack"
+  },
+  "plugins": [
+    {
+      "name": "one-stack",
+      "source": {
+        "source": "local",
+        "path": "./plugins/one-stack"
+      },
+      "policy": {
+        "installation": "INSTALLED_BY_DEFAULT",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
