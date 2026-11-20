@@ -28,6 +28,7 @@ A scheduled job re-runs the installer at sign-in and once a day. It pulls the la
 
 <table>
   <tr><td><a href="plugins/one-stack/skills/gui-god/SKILL.md"><b>gui-god</b></a></td><td>Design, build and review graphical interfaces that have few controls and show live results.</td></tr>
+  <tr><td><a href="plugins/one-stack/skills/readme-god/SKILL.md"><b>readme-god</b></a></td><td>Write or rewrite a project README that a new user can scan in a minute and act on.</td></tr>
 </table>
 
 ## Rules for skills
