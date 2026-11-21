@@ -1,4 +1,8 @@
-# god-stack
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.png">
+  <img alt="god-stack" src="assets/banner-light.png" width="100%">
+</picture>
 
 god-stack gives coding agent users reusable skills with concrete rules for UI design, READMEs, off-desktop testing and skill authoring. Each skill applies across projects and works with any model, provider or harness.
 
