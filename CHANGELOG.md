@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## v0.7.0
+
+### Added
+
+- `comment-god` skill, adapted from Lauren Tan's MIT-licensed `pstack` skills (`no-comments`, `architect` and `why`).
+- `THIRD_PARTY_NOTICES.md` for third-party license attributions.
+
 ## v0.6.0
 
 ### Added

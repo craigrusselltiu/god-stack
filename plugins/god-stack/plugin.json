@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "god-stack",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Skills that improve the quality of agent results in any project, with any model, provider or harness.",
   "logo": "assets/logo.svg"
 }
