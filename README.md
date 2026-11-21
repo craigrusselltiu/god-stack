@@ -25,7 +25,7 @@ curl -fsSL https://raw.githubusercontent.com/craigrusselltiu/god-stack/main/inst
 ## Skills
 
 <table>
-  <tr><td><a href="plugins/god-stack/skills/comment-god/SKILL.md"><b>comment-god</b></a></td><td>Remove unnecessary comments and diagnostic suppressions in scoped code, and fix the underlying code when needed.</td></tr>
+  <tr><td><a href="plugins/god-stack/skills/comment-god/SKILL.md"><b>comment-god</b></a></td><td>Remove unnecessary comments and diagnostic suppressions, and fix the underlying code at its root cause.</td></tr>
   <tr><td><a href="plugins/god-stack/skills/do-not-disturb/SKILL.md"><b>do-not-disturb</b></a></td><td>Run functional tests and capture apps off your desktop without stealing window focus or the cursor.</td></tr>
   <tr><td><a href="plugins/god-stack/skills/gui-god/SKILL.md"><b>gui-god</b></a></td><td>Design, build and review cohesive, low-clutter graphical interfaces that feel natural to use.</td></tr>
   <tr><td><a href="plugins/god-stack/skills/readme-god/SKILL.md"><b>readme-god</b></a></td><td>Write or review a project README that a first-time user can scan in a minute and act on.</td></tr>
@@ -34,4 +34,4 @@ curl -fsSL https://raw.githubusercontent.com/craigrusselltiu/god-stack/main/inst
 
 ## License
 
-[MIT](LICENSE). See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for third-party attributions.
+[MIT](LICENSE)

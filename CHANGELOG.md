@@ -6,8 +6,7 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ### Added
 
-- `comment-god` skill, adapted from Lauren Tan's MIT-licensed `pstack` skills (`no-comments`, `architect` and `why`).
-- `THIRD_PARTY_NOTICES.md` for third-party license attributions.
+- `comment-god` skill.
 
 ## v0.6.0
 

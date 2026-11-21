@@ -1,44 +1,32 @@
 ---
 name: comment-god
-description: Remove unnecessary comments and diagnostic suppressions in scoped code, and fix the underlying code when needed.
+description: Remove unnecessary comments and diagnostic suppressions, and fix the underlying code at its root cause.
 disable-model-invocation: true
 ---
 
 # Comment god
 
-You are a comment god. Your job is to remove every comment and diagnostic suppression without a proven exception, and fix underlying code instead of excusing it in prose.
+You are a comment god. Your job is to remove unnecessary comments and diagnostic suppressions, trace warnings and workarounds to their root cause and fix the underlying code so it needs neither.
 
 ## Audit
 
-- Audit the caller's files or diff. Otherwise audit staged changes, unstaged changes and relevant new files against the merge base with the requested or PR target branch. Default to the repository's default branch or `main`.
-- Read surrounding code for context, and keep all edits inside scope.
-- When delegation is available and authorized, audit with a fresh read-only reviewer given the scope and criteria in this skill. Ask for file and line references, evidence for each keep and the exact symbols that need a fix. Run the same audit yourself when working alone.
-- Remove every comment by default: narration, banners, commented-out code, stale explanations and prose that excuses workarounds. When a comment explains surprising behavior in code you can change, flag the exact symbol for a rename, extraction, stronger type or redesign.
-- Inspect every scoped lint or type suppression, including any a reviewer missed. Read the exact rule or diagnostic, and fix any hidden correctness or safety issue at the named symbol before removing the suppression.
-- Trace warning claims such as `IMPORTANT` and `do not remove` through the symbol and its callers. When the reason stays unclear, inspect commits, PR discussions, issues or design records. When the record is incomplete and you cannot verify whether the warning still applies, leave it intact and report it as unresolved instead of guessing. Cite evidence behind consequential decisions, label inferences and note gaps in the record.
-- Verify every review finding against the diff and current behavior. Reject scope escapes, reviewer edits to application code, unsupported findings and flags on intentional behavior with a proven exception. Retry a rejected delegated review at most once with the reasons, and report unresolved findings.
+- Work on the caller's files or diff. Otherwise cover staged changes, unstaged changes and new files against the branch merge base.
+- Read surrounding code before deciding whether a comment or suppression belongs.
+- Remove comments by default: narration, section banners, commented-out code, stale notes and workaround excuses.
+- Keep a comment or suppression only when code cannot express the requirement in scope: license notices, public API contracts, external platform or dependency constraints, formatter or style-only lint directives and negative tests that assert an expected error.
+- Inspect every lint, type and compiler suppression in scope by reading the exact rule or diagnostic it hides.
+- For review-only requests, trace root causes and report findings with file and line references without editing files.
 
-## Exceptions
+## Root causes
 
-- Keep a comment or suppression only when current evidence proves an exception still applies.
-- Keep legal and license notices.
-- Keep documentation that defines a public API contract.
-- Keep non-obvious constraints imposed by an external dependency, platform or protocol outside your control.
-- Keep formatter directives such as `prettier-ignore`, lint suppressions for faulty or style-only rules and directives in negative tests that assert an expected error.
-- Keep issue or RFC links that document a constraint the code cannot express.
-
-## Fixes
-
-- For review-only requests, stop after the audit and report findings without editing files.
-- Apply accepted removals and trivial fixes directly.
-- For structural fixes, trace affected systems and callers before editing, then sketch two distinct designs with concrete types, function signatures and module boundaries. For a large or contested design, get independent sketches through delegation when available and authorized.
-- Choose the design with one owner per piece of state, one canonical path per operation and the least caller knowledge. Complete one design pass for all accepted findings that need it.
-- Implement the smallest in-scope changes that eliminate the root cause and remove the workaround. Verify the implementation against the sketch, and revisit that part of the design if workarounds repeat.
-- Restore a removed comment only when a verified exception applies, and report any needed fix outside scope.
-- When prose states an internal constraint, offer the cheapest in-scope enforcement through a type, runtime check, test or CI lint. Honor prior approval. Otherwise ask before adding enforcement in interactive sessions, and add enforcement in unattended sessions only when the caller already approved it.
-- Apply approved enforcement before removing its comment. If enforcement is declined or unavailable, remove the comment when removal is accepted and report the constraint as unenforced.
+- Trace every warning, workaround or suppression to its root cause before removing it. Follow callers, implementations, runtime paths, tests and git history instead of stopping at the commented line.
+- Never remove a warning or suppression on a guess. Leave it intact and report the gap when available code and history cannot confirm it is safe to remove, or when the root-cause fix lies outside scope.
+- Fix the root cause instead of explaining a workaround in prose. Rename unclear symbols, simplify control flow, tighten types or redesign the faulty boundary so the workaround is no longer needed.
+- Fix the underlying bug before removing any suppression that hides a correctness or safety error.
+- Replace prose invariants with the cheapest in-scope enforcement: a type, assertion, test or lint rule.
+- Keep edits inside scope. When the root-cause fix lies outside scope, keep the boundary safe and report what still needs a fix.
 
 ## Check
 
-- After editing, inspect the final diff and run relevant checks.
-- Report file and line findings for review-only runs. For edit runs, report removal count, restorations, any review retry, the design choice and fixes, enforcement offered or applied and open or out-of-scope findings.
+- Review the final diff to confirm every kept comment or suppression has a verified reason and every edit stays in scope.
+- Run relevant tests, typechecks and linters, and report what you removed, each root-cause fix and any unresolved warnings or out-of-scope work.
