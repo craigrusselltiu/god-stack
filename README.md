@@ -29,7 +29,7 @@ A scheduled job re-runs the installer at sign-in and once a day. It pulls the la
 <table>
   <tr><td><a href="plugins/god-stack/skills/gui-god/SKILL.md"><b>gui-god</b></a></td><td>Design, build and review graphical interfaces that have few controls and show live results.</td></tr>
   <tr><td><a href="plugins/god-stack/skills/readme-god/SKILL.md"><b>readme-god</b></a></td><td>Write or rewrite a project README that a new user can scan in a minute and act on.</td></tr>
-  <tr><td><a href="plugins/god-stack/skills/skill-god/SKILL.md"><b>skill-god</b></a></td><td>Create, improve, combine or review agent skills that stay concise and general.</td></tr>
+  <tr><td><a href="plugins/god-stack/skills/skill-god/SKILL.md"><b>skill-god</b></a></td><td>Create, improve, combine or review agent skills that stay short and general.</td></tr>
 </table>
 
 ## Rules for skills

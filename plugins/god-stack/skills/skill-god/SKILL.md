@@ -1,50 +1,55 @@
 ---
 name: skill-god
-description: Create, improve, combine or review agent skills that stay concise and general. Use when writing a new skill, turning session lessons into a skill, adapting an external skill, or fixing a skill that produces weak or unreliable results.
+description: Create, improve, combine or review agent skills that stay short and general. Use when writing a new skill, turning session lessons into a skill, adapting an external skill, or fixing a skill that gives weak results.
 ---
 
 # Skill god
 
-A skill encodes judgment and steps that change how an agent performs a task. Write for a new agent that has never seen your conversation, and cut everything it already knows.
+A skill states rules and steps that change how an agent works. Write for an agent in a new session. Cut everything it already knows.
 
-## Extract from real work
+## Sources
 
-- Read the actual artifacts, git history, failures and user corrections before drafting. Do not write a skill from memory or generic checklists.
-- Trace each failure to its root cause and fix the underlying principle. Do not append patch rules for one incident.
-- Generalize concrete fixes into rules that hold for unseen inputs. Never tune a skill to one test case.
-- Audit external skills against the real environment before adopting them. Keep the core method, and drop or adapt rules that break on the target platform or conflict with existing workflows.
+- Read the finished files, git history, failures and user corrections before drafting. Do not write a skill from memory.
+- Trace a failure to its cause and fix the general rule. Do not add one-off exceptions for a single incident.
+- Rewrite every project fix as a rule for unseen inputs, such as replacing a fix for one asset with a check that works on any asset.
+- Audit an external skill on the real platform before adopting it. Keep the core method, and adapt or drop rules that fail on the target platform or conflict with existing workflows.
 
-## Scope and structure
+## Structure
 
-- Give each skill one clear job. Put supporting techniques inside the main workflow and skip multi-mode menus.
-- Keep reusable skills independent of any single project, model, provider or tool. When a skill benefits from an optional capability, explain how to use it when present and how to finish the work without it.
-- Match control to risk. State the outcome and decision criteria when multiple approaches work. Add a script or fixed sequence only when deterministic execution prevents errors or repeated work.
-- Keep the frontmatter short because it loads in every session. State what the skill does and when to trigger it, and add exclusions where misrouting is likely. Require manual invocation for intrusive or specialized workflows.
-- Keep `SKILL.md` short so every line changes a decision. Move bulky references or templates into linked files and state when to read each one. Skip extra files when one file is enough.
-- Keep each fact in one place. Link to repository documentation or workflows rather than copying rules.
+- Give each skill one job. When combining skills, put supporting steps inside that workflow instead of adding modes.
+- Keep shared skills independent of any single project, model, provider or tool. When a skill uses an optional capability such as subagents or a tool server, explain how to finish the work without it.
+- In a repository-local skill, keep each fact in one place and link to existing repository documentation rather than copying rules.
+- Describe the goal and criteria when multiple approaches work. Add a script or fixed sequence only when deterministic execution prevents errors or repeated work.
+- Keep frontmatter under 100 words because it loads in every session. State what the skill does and when to trigger it. Add exclusions only to prevent false matches.
+- Require manual invocation, such as `disable-model-invocation: true`, when automatic triggers would disrupt ordinary work.
+- Keep `SKILL.md` under 150 lines and move long references into linked files such as `references/api.md`. State when to read each file, and skip extra files when one file is enough.
 
-## Plain words
+## Words
 
-- Say what to do with a mechanism or a number. Cut any sentence that could sit unchanged in another skill.
-- Write whole, active-voice sentences with one idea per sentence. Name the actor, and spell out arrows and abbreviations.
-- Use one name for each concept and repeat it.
-- Use plain, literal words. Write "is" or "has" instead of "serves as" or "features", and "use" instead of "utilize" or "leverage". Replace abstract metaphors and AI filler words such as "crucial", "delve", "scaffolding" or "paradigm" with the concrete word.
-- Cut filler, vague attributions, generic conclusions, chatbot openers and trailing "-ing" clauses that add no fact. Keep hedging to "may" at most, and replace adverbs with stronger verbs or exact numbers.
-- State the point instead of writing "not just X, but Y". Avoid false "from X to Y" scales and forced lists of three.
-- Use periods or commas instead of em dashes, en dashes, hyphens used as dashes, or parentheses in their place. Use a colon only before a list or an example, never mid-sentence as a connector.
-- Use sentence-case headings and straight quotes. Skip decorative emojis and scattered bolding. Do not use a bold label that restates the line after it.
+- State the mechanism or the number. Cut any sentence that could appear unchanged in another skill.
+- Write whole, active-voice sentences with one idea per sentence. Name the actor.
+- Spell out arrows and abbreviations. Repeat one name for each concept.
+- Use plain, literal words. Write "is" or "has" instead of "serves as" or "features".
+- Write "use" instead of "utilize" or "leverage". Replace metaphors and AI filler words such as "crucial", "delve", "enhance", "scaffolding" or "paradigm" with the concrete word.
+- Cut filler, vague attributions, generic conclusions, chatbot openers and trailing "-ing" clauses that add no fact.
+- Keep hedging to "may" at most. Replace adverbs with stronger verbs or exact numbers.
+- State the point instead of writing "not just X, but Y". Avoid false "from X to Y" scales. Do not force ideas into threes.
+- Use periods or commas instead of em dashes, en dashes, hyphens used as dashes, or parentheses in their place. Use a colon only before a list or an example.
+- Use sentence-case headings and straight quotes. Skip decorative emojis and scattered bolding. Never add a bold label that restates its line.
 
-## Limits and checkpoints
+## Limits
 
-- State what the skill covers and what it excludes so agents do not overclaim results.
-- Enforce strict rules in code, types, tests or linters. A skill guides behavior, and only code or automation enforces a rule.
-- Bound retry loops and add human checkpoints before irreversible or subjective steps. Tell the agent when to stop and report what remains unresolved.
-- Name the source of truth when humans and agents share files, and tell the agent to inspect current state before acting.
+- State what the skill covers and what it does not prove or handle so agents do not overclaim results.
+- Enforce strict rules in code, types, tests or linters rather than prose alone.
+- Cap retry loops at 3 to 5 rounds, then stop and report what remains unresolved.
+- Add human checkpoints before irreversible or subjective steps.
+- Name the source of truth when humans and agents edit the same files, such as a design file or configuration file. Tell the agent to inspect the current state before acting.
 
-## Verify and maintain
+## Check
 
-- Test the skill with a new agent that has no session context. Give it a new input rather than the case that inspired the skill, and fix every missing assumption it hits.
-- Run every command, script, install step and manifest validator the skill names in a clean environment. Verify that checks fail on broken inputs, not only that they pass on valid ones.
-- Never weaken a rule or check to make a run pass. When a run fails, determine whether the skill fell out of date or the work has a bug.
-- Run two editing passes before finishing. First scan mechanically for banned words, dashes, parentheses, curly quotes and arrows. Then read the whole file by hand to cut repetition and forced patterns.
-- Delete stale instructions whenever you edit a skill. Remove rules that no longer change behavior so the file stays short.
+- Run the skill in a new session with no prior context on an unseen input. Fix every missing assumption it exposes.
+- Run every command and script the skill names in a clean environment. Run each target tool's validator when packaging a plugin.
+- Verify that checks pass on valid inputs and fail on broken ones.
+- Never weaken a rule or check to make a run pass. When a run fails, check whether the skill is out of date or the implementation has a bug.
+- Search the finished file for dashes, parentheses, curly quotes, arrows and the AI filler words above. Then read the whole file yourself to cut repetition and forced lists of three.
+- Delete rules that no longer change behavior whenever you edit a skill.
