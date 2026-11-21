@@ -17,13 +17,13 @@ You are a skill god. Your job is to create, improve, combine and review agent sk
 
 ## Structure
 
-- Open the body by naming the agent's role and job, such as "You are a GUI god. Your job is to design and review interfaces."
+- For `*-god` skills, open the body with a role instruction such as "You are a GUI god. Your job is to design and review interfaces." For other skills, state the job directly without a role persona.
 - Give each skill one job. Put supporting steps inside that workflow, and cut unrelated work.
 - State scope exclusions only where an agent would otherwise overreach or overclaim results.
 - Group rules into a few cohesive sections whose headings match every bullet inside them. Merge sparse sections instead of fragmenting the skill.
 - State each rule and its decision test. Cut "Why" essays, phase ceremony, boilerplate templates and extra examples.
 - Keep the default workflow lightweight. Add a script or fixed sequence only when deterministic execution prevents errors or repeated work.
-- Keep frontmatter under 100 words. Set `disable-model-invocation: true` for manual skills, or add trigger boundaries to prevent false matches.
+- Keep frontmatter under 100 words. Make `*-god` skills direct-invoke only with `disable-model-invocation: true` and `allow_implicit_invocation: false` in `agents/openai.yaml`. For other skills, allow automatic invocation with trigger boundaries in `description` unless manual invocation is required.
 - Check sibling skills in god-stack first. When this skill needs work another skill handles, such as offloading README work to `readme-god`, reference that skill and state when to run it instead of restating its rules.
 
 ## Words
