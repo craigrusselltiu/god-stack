@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## v0.5.1
+
+### Fixed
+
+- Install Antigravity skills into `~/.gemini/config/skills` instead of `agy plugin install` so Antigravity discovers them across App, IDE, CLI and embedded hosts without duplicates.
+
 ## v0.5.0
 
 ### Changed

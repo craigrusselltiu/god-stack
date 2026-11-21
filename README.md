@@ -16,7 +16,7 @@ macOS and Linux:
 curl -fsSL https://raw.githubusercontent.com/craigrusselltiu/god-stack/main/install.sh | sh
 ```
 
-The installer needs git. It clones this repo to `~/.god-stack` and adds the plugin to every CLI it finds: Claude Code, Codex, Copilot CLI and Antigravity (`agy`). Running it again updates everything.
+The installer needs git. It clones this repo to `~/.god-stack`, adds the plugin to Claude Code, Codex and Copilot CLI, and copies the skills to `~/.gemini/config/skills` for Antigravity. Running it again updates everything.
 
 For another harness, copy the folders in [`plugins/god-stack/skills`](plugins/god-stack/skills) to the place where that harness reads skills.
 
