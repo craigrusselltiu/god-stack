@@ -1,12 +1,12 @@
-# Install or update one-stack for Claude Code, Codex, Copilot CLI and Antigravity.
-#   Install or update: irm https://raw.githubusercontent.com/craigrusselltiu/one-stack/main/install.ps1 | iex
-#   Uninstall:         & ([scriptblock]::Create((irm https://raw.githubusercontent.com/craigrusselltiu/one-stack/main/install.ps1))) -Uninstall
+# Install or update god-stack for Claude Code, Codex, Copilot CLI and Antigravity.
+#   Install or update: irm https://raw.githubusercontent.com/craigrusselltiu/god-stack/main/install.ps1 | iex
+#   Uninstall:         & ([scriptblock]::Create((irm https://raw.githubusercontent.com/craigrusselltiu/god-stack/main/install.ps1))) -Uninstall
 param([switch]$Uninstall)
 
-$dir = Join-Path $HOME '.one-stack'
-$plugin = Join-Path $dir 'plugins\one-stack'
-$id = 'one-stack@one-stack'
-$task = 'one-stack update'
+$dir = Join-Path $HOME '.god-stack'
+$plugin = Join-Path $dir 'plugins\god-stack'
+$id = 'god-stack@god-stack'
+$task = 'god-stack update'
 
 function Has($name) { [bool](Get-Command $name -ErrorAction SilentlyContinue) }
 function Step($name, [scriptblock]$commands) {
@@ -18,23 +18,23 @@ function Step($name, [scriptblock]$commands) {
 
 if ($Uninstall) {
     Unregister-ScheduledTask -TaskName $task -Confirm:$false -ErrorAction SilentlyContinue
-    Step claude { claude plugin uninstall $id; claude plugin marketplace remove one-stack }
-    Step copilot { copilot plugin uninstall one-stack; copilot plugin marketplace remove one-stack }
-    Step codex { codex plugin remove $id; codex plugin marketplace remove one-stack }
-    Step agy { agy plugin uninstall one-stack }
+    Step claude { claude plugin uninstall $id; claude plugin marketplace remove god-stack }
+    Step copilot { copilot plugin uninstall god-stack; copilot plugin marketplace remove god-stack }
+    Step codex { codex plugin remove $id; codex plugin marketplace remove god-stack }
+    Step agy { agy plugin uninstall god-stack }
     Remove-Item -Recurse -Force $dir -ErrorAction SilentlyContinue
-    Write-Host 'Removed one-stack.'
+    Write-Host 'Removed god-stack.'
     return
 }
 
-if (-not (Has git)) { throw 'one-stack needs git: https://git-scm.com/downloads' }
+if (-not (Has git)) { throw 'god-stack needs git: https://git-scm.com/downloads' }
 if (Test-Path (Join-Path $dir '.git')) { git -C $dir pull --ff-only --quiet }
-else { git clone --quiet --depth 1 https://github.com/craigrusselltiu/one-stack $dir }
-if ($LASTEXITCODE) { throw 'Could not download one-stack.' }
+else { git clone --quiet --depth 1 https://github.com/craigrusselltiu/god-stack $dir }
+if ($LASTEXITCODE) { throw 'Could not download god-stack.' }
 
 # Claude Code and Copilot CLI load the plugin in place from the clone.
 # Codex and Antigravity keep a copy, which re-adding refreshes.
-Write-Host 'one-stack installed for:'
+Write-Host 'god-stack installed for:'
 Step claude { claude plugin marketplace add $dir; claude plugin install $id }
 Step copilot { copilot plugin marketplace add $dir; copilot plugin install $id }
 Step codex { codex plugin marketplace add $dir; codex plugin add $id }

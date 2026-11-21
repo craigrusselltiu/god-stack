@@ -1,14 +1,14 @@
 {
-  "name": "one-stack",
+  "name": "god-stack",
   "interface": {
-    "displayName": "One Stack"
+    "displayName": "God Stack"
   },
   "plugins": [
     {
-      "name": "one-stack",
+      "name": "god-stack",
       "source": {
         "source": "local",
-        "path": "./plugins/one-stack"
+        "path": "./plugins/god-stack"
       },
       "policy": {
         "installation": "INSTALLED_BY_DEFAULT",

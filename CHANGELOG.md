@@ -2,6 +2,16 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## v0.3.0
+
+### Added
+
+- skill-god skill.
+
+### Changed
+
+- Renamed the repository and plugin from one-stack to god-stack.
+
 ## v0.2.0
 
 ### Added
