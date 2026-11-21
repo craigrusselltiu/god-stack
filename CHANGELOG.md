@@ -10,7 +10,7 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ### Changed
 
-- Refined `README.md` with prerequisites, a usage example, accurate per-platform update details and aligned skill descriptions.
+- Simplified `README.md` to prerequisites, install commands, the skills table and license.
 - Removed stale `and show live results` wording from `gui-god` frontmatter.
 
 ### Fixed
