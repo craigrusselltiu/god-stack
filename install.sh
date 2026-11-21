@@ -20,9 +20,9 @@ step() {
 }
 without_cron() { crontab -l 2>/dev/null | grep -v 'god-stack/install.sh'; }
 
-claude_add() { claude plugin marketplace add "$dir" && claude plugin install "$id"; }
-copilot_add() { copilot plugin marketplace add "$dir" && copilot plugin install "$id"; }
-codex_add() { codex plugin marketplace add "$dir" && codex plugin add "$id"; }
+claude_add() { claude plugin marketplace add "$dir"; claude plugin install "$id"; }
+copilot_add() { copilot plugin marketplace add "$dir"; copilot plugin install "$id"; }
+codex_add() { codex plugin marketplace add "$dir"; codex plugin add "$id"; }
 claude_remove() { claude plugin uninstall "$id"; claude plugin marketplace remove god-stack; }
 copilot_remove() { copilot plugin uninstall god-stack; copilot plugin marketplace remove god-stack; }
 codex_remove() { codex plugin remove "$id"; codex plugin marketplace remove god-stack; }

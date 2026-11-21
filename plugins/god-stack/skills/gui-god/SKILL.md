@@ -1,6 +1,6 @@
 ---
 name: gui-god
-description: Design, build and review cohesive, low-clutter graphical interfaces that feel natural to use and show live results.
+description: Design, build and review cohesive, low-clutter graphical interfaces that feel natural to use.
 disable-model-invocation: true
 ---
 

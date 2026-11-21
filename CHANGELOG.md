@@ -2,6 +2,21 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## v0.6.0
+
+### Added
+
+- `do-not-disturb` skill.
+
+### Changed
+
+- Refined `README.md` with prerequisites, a usage example, accurate per-platform update details and aligned skill descriptions.
+- Removed stale `and show live results` wording from `gui-god` frontmatter.
+
+### Fixed
+
+- Always run the plugin install/refresh step in `install.sh` even if `marketplace add` exits non-zero when already registered.
+
 ## v0.5.1
 
 ### Fixed
