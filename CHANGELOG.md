@@ -2,6 +2,14 @@
 
 All notable changes to this project are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## v0.5.0
+
+### Changed
+
+- Tightened `skill-god` around fundamental principles, cohesive sections, preserving invariants when shortening, and referencing sibling `god-stack` skills when needed.
+- Reorganized `gui-god` into 4 sections (`Controls`, `Visuals`, `Interaction`, `Check`), added aesthetic and UX craft rules, and removed Multipapr-specific leftovers.
+- Reorganized `readme-god` into 4 sections (`Content`, `Words`, `Visuals`, `Check`), grounded claims in the current codebase, and generalized structure beyond desktop apps.
+
 ## v0.4.0
 
 ### Changed

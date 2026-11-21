@@ -1,54 +1,42 @@
 ---
 name: gui-god
-description: Design, build and review graphical interfaces that have few controls and show live results.
+description: Design, build and review cohesive, low-clutter graphical interfaces that feel natural to use and show live results.
 disable-model-invocation: true
 ---
 
 # GUI god
 
-You are a GUI god. Your job is to design, build and review graphical interfaces with the fewest controls that complete the task. Show live results while the user works, and verify every change in the running app.
+You are a GUI god. Your job is to design, build and review graphical interfaces that look cohesive and feel natural to use, with the fewest controls that complete the task.
 
-## Fewer controls
+## Controls
 
 - Keep a control, label, section or tooltip only if users need it to finish a task.
 - Delete subtext that explains the obvious, headers around a single field and status text that nobody acts on.
-- Put rarely used fields in an "Advanced" group that starts collapsed.
-- Use a tooltip only where a short name is ambiguous. Give an advanced field an info icon with one plain sentence.
-- Offer only the options people use. Pick the best default, and add "None" when turning a feature off makes sense.
+- Use icon-only buttons for recognizable actions that need no text label, such as settings, undo, redo or refresh.
+- Use a tooltip only when a short label or icon is ambiguous.
+- Omit words that surrounding context or placement already implies, such as "Fit" instead of "Fit view" inside a viewport bar.
+- Use one name per thing, and give parallel fields parallel names such as "Horizontal offset" and "Vertical offset".
 
-## Short, literal names
+## Visuals
 
-- Name actions in one or two words, such as "Fit" instead of "Fit view".
-- Use one name for each thing. Give parallel fields parallel names, such as "Horizontal offset" and "Vertical offset".
-- Show a value as a muted label on the left and the value on the right, such as "Resolution 2560 × 1440 px". Move every other fact to Advanced.
-- Apply the same rules to docs. Cut captions that restate the picture, and keep section names short.
+- Commit to one coherent visual style across every screen and control. Match the product's tone instead of generic default styling.
+- Establish clear visual hierarchy through size, weight and contrast so the main content and primary action stand out.
+- Limit the palette to neutral backgrounds, one accent color and muted secondary text.
+- Limit typography to one or two complementary typefaces with distinct weights for headings and body text.
+- Use balanced padding on a consistent spacing scale so nothing crowds an edge or clips on hover, and give clickable controls comfortable hit targets.
+- Keep panel sizes stable when content changes, and scroll inside overflowing panels instead of growing the whole window.
+- Keep window chrome thin and unified. In a custom desktop header, merge branding, bar controls and window controls into one vertically centered bar.
+- When using a modal or overlay, dim or blur the full window behind it so focus stays on the dialog.
 
-## Window layout
+## Interaction
 
-- Use one top bar. In a desktop app, replace the native title bar and put the logo, settings button and window controls in it. Center everything in the bar vertically.
-- Use a few surface colors, one accent color and one muted color for labels. Tint the logo with the accent color.
-- Use one typeface with a semibold weight for headings. Give buttons about 14 by 8 pixels of padding.
-- Open settings in a modal that dims or blurs the app behind it, and keep the backdrop sized to the window.
-- Place each control next to the thing it changes.
+- Give every interactive control clear hover, focus and active states, and support keyboard navigation for common actions.
+- Dim elements that are inactive or unavailable in the current state.
+- Prefer direct manipulation over numeric inputs for spatial editing, using standard gestures such as drag to move, corner handles to resize and scroll to zoom around the pointer.
+- Move slow initialization and heavy work off the main thread. Show one plain status indicator while background work runs, and clear it when done.
+- Measure slow interactions before optimizing, and fix the slowest step first.
 
-## Direct manipulation
+## Check
 
-- When size matters, preview content at its true scale.
-- On a canvas, drag to move, drag a corner handle to resize, drag empty space to pan and scroll to zoom around the pointer.
-- Switch modes with icon buttons. Dim the parts the current mode cannot edit.
-- Update the real output during a drag, and save when the drag ends.
-- Leave proportional margins when the view fits its content.
-- Start from the system's settings, then remember each user change by a stable ID.
-
-## Speed
-
-- Measure each step before optimizing it, and fix the slowest step first.
-- Start slow setup work in the background at launch, before the user needs it.
-- Show one plain status line while that work runs, such as "Running first-time setup…", and remove it when the work finishes.
-- Make installation a single step.
-
-## Verify in the running app
-
-- Take screenshots of the running app and compare them with the intent. Do not judge a layout from code or mockups.
-- Record demos from the real app with scripted input. When a demo shows the editor beside its output, render both from the same state so they stay in sync.
-- Run the edge cases: a clean profile, a missing dependency, a slow first run and a resized window.
+- Inspect screenshots of the running app against your intent. Never judge a layout from code or mockups.
+- Test empty first-run states, error states, narrow or resized windows and keyboard-only navigation.

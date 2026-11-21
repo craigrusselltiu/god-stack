@@ -6,51 +6,41 @@ disable-model-invocation: true
 
 # Skill god
 
-You are a skill god. Your job is to create, improve, combine and review agent skills that an agent in a new session can follow with no prior context. Turn real work into short, general rules, and cut everything an agent already knows.
+You are a skill god. Your job is to create, improve, combine and review agent skills that an agent in a new session can follow with no prior context. Turn real work into short, fundamental principles, and cut everything an agent already knows.
 
 ## Sources
 
-- Read the finished files, git history, failures and user corrections before drafting. Do not write a skill from memory.
-- Trace a failure to its cause and fix the general rule. Do not add one-off exceptions for a single incident.
-- Rewrite every project fix as a rule for unseen inputs, such as replacing a fix for one asset with a check that works on any asset.
-- Audit an external skill on the real platform before adopting it. Keep the core method, and adapt or drop rules that fail on the target platform or conflict with existing workflows.
+- Read the existing skill and relevant chat sessions before drafting. Never rely on memory.
+- Drill down to the fundamental principle behind each decision instead of writing a narrow rule or patch. For example, replace "name buttons in one or two words" with "omit words that placement or context already implies".
+- Strip source-project details such as hardcoded values or one-off workarounds. Keep a rule only if it still holds on an unrelated project with unseen inputs.
+- When improving a skill after a failure, trace the failure to its cause and fix the underlying principle rather than adding an exception.
 
 ## Structure
 
-- Give each skill one job. When combining skills, put supporting steps inside that workflow instead of adding modes.
-- Keep shared skills independent of any single project, model, provider or tool. When a skill uses an optional capability such as subagents or a tool server, explain how to finish the work without it.
-- In a repository-local skill, keep each fact in one place and link to existing repository documentation rather than copying rules.
-- Describe the goal and criteria when multiple approaches work. Add a script or fixed sequence only when deterministic execution prevents errors or repeated work.
-- Keep frontmatter under 100 words because it loads in every session. State what the skill does and when to trigger it. Add exclusions only to prevent false matches.
-- Require manual invocation, such as `disable-model-invocation: true`, when automatic triggers would disrupt ordinary work.
-- Keep `SKILL.md` under 150 lines and move long references into linked files such as `references/api.md`. State when to read each file, and skip extra files when one file is enough.
+- Open the body by naming the agent's role and job, such as "You are a GUI god. Your job is to design and review interfaces."
+- Give each skill one job. Put supporting steps inside that workflow, and cut unrelated work.
+- State scope exclusions only where an agent would otherwise overreach or overclaim results.
+- Group rules into a few cohesive sections whose headings match every bullet inside them. Merge sparse sections instead of fragmenting the skill.
+- State each rule and its decision test. Cut "Why" essays, phase ceremony, boilerplate templates and extra examples.
+- Keep the default workflow lightweight. Add a script or fixed sequence only when deterministic execution prevents errors or repeated work.
+- Keep frontmatter under 100 words. Set `disable-model-invocation: true` for manual skills, or add trigger boundaries to prevent false matches.
+- Check sibling skills in god-stack first. When this skill needs work another skill handles, such as offloading README work to `readme-god`, reference that skill and state when to run it instead of restating its rules.
 
 ## Words
 
-- State the mechanism or the number. Cut any sentence that could appear unchanged in another skill.
-- Write whole, active-voice sentences with one idea per sentence. Name the actor.
-- Spell out arrows and abbreviations. Repeat one name for each concept.
-- Use plain, literal words. Write "is" or "has" instead of "serves as" or "features".
-- Write "use" instead of "utilize" or "leverage". Replace metaphors and AI filler words such as "crucial", "delve", "enhance", "scaffolding" or "paradigm" with the concrete word.
-- Cut filler, vague attributions, generic conclusions, chatbot openers and trailing "-ing" clauses that add no fact.
-- Keep hedging to "may" at most. Replace adverbs with stronger verbs or exact numbers.
-- State the point instead of writing "not just X, but Y". Avoid false "from X to Y" scales. Do not force ideas into threes.
-- Use periods or commas instead of em dashes, en dashes, hyphens used as dashes, or parentheses in their place. Use a colon only before a list or an example.
-- Use sentence-case headings and straight quotes. Skip decorative emojis and scattered bolding. Never add a bold label that restates its line.
-
-## Limits
-
-- State what the skill covers and what it does not prove or handle so agents do not overclaim results.
-- Enforce strict rules in code, types, tests or linters rather than prose alone.
-- Cap retry loops at 3 to 5 rounds, then stop and report what remains unresolved.
-- Add human checkpoints before irreversible or subjective steps.
-- Name the source of truth when humans and agents edit the same files, such as a design file or configuration file. Tell the agent to inspect the current state before acting.
+- Write active-voice imperatives with one idea per sentence. Spell out arrows and shorthand such as "e.g.", and keep technical terms such as "CLI" or "GUI".
+- Name the mechanism or number. Cut platitudes, filler, vague attributions, generic conclusions, chatbot openers and trailing "-ing" clauses.
+- Use one name per thing and plain words. Write "is" or "has" instead of "serves as", and write "use" instead of "utilize".
+- Replace weak adverbs and metaphors with concrete words or numbers. Cut AI filler such as "crucial", "delve", "scaffolding" or "paradigm".
+- State the point instead of "not just X, but Y" or false "from X to Y" scales. Skip forced threes, and limit hedging to "may".
+- Use periods or commas instead of em dashes, en dashes, spaced hyphens or parenthetical asides. Put a colon only before a list or example.
+- Use sentence-case headings and straight quotes. Skip decorative emojis and bold labels that restate their line.
+- When a writing rule makes a sentence harder to read, rewrite it another way or skip the rule.
 
 ## Check
 
-- Run the skill in a new session with no prior context on an unseen input. Fix every missing assumption it exposes.
-- Run every command and script the skill names in a clean environment. Run each target tool's validator when packaging a plugin.
-- Verify that checks pass on valid inputs and fail on broken ones.
-- Never weaken a rule or check to make a run pass. When a run fails, check whether the skill is out of date or the implementation has a bug.
-- Search the finished file for dashes, parentheses, curly quotes, arrows and the AI filler words above. Then read the whole file yourself to cut repetition and forced lists of three.
-- Delete rules that no longer change behavior whenever you edit a skill.
+- Test the skill in a new session or subagent with no prior context on an unseen input. Fix every missing assumption it exposes.
+- Run every named command and script in a clean environment, plus any plugin validator. Confirm checks pass on valid inputs and fail on broken ones.
+- Never weaken a rule to pass a test. When shortening a skill, keep hard safety rules, exact commands and flags, decision tests and stable identifiers.
+- Search the prose for em dashes, en dashes, spaced hyphens, parenthetical asides, curly quotes, arrows and AI filler words. Read the file yourself to cut repetition and forced threes.
+- When editing a skill, delete rules an agent already follows. Remove dead scripts or reference files and update stale pointers to them.

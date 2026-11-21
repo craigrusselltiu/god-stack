@@ -29,8 +29,8 @@ A scheduled job re-runs the installer at sign-in and once a day. It pulls the la
 Invoke each skill directly by name, such as `/gui-god` or `$gui-god`. Skills do not trigger on their own.
 
 <table>
-  <tr><td><a href="plugins/god-stack/skills/gui-god/SKILL.md"><b>gui-god</b></a></td><td>Design, build and review graphical interfaces that have few controls and show live results.</td></tr>
-  <tr><td><a href="plugins/god-stack/skills/readme-god/SKILL.md"><b>readme-god</b></a></td><td>Write or rewrite a project README that a new user can scan in a minute and act on.</td></tr>
+  <tr><td><a href="plugins/god-stack/skills/gui-god/SKILL.md"><b>gui-god</b></a></td><td>Design, build and review cohesive, low-clutter graphical interfaces that feel natural to use and show live results.</td></tr>
+  <tr><td><a href="plugins/god-stack/skills/readme-god/SKILL.md"><b>readme-god</b></a></td><td>Write or review a project README that a first-time user can scan in a minute and act on.</td></tr>
   <tr><td><a href="plugins/god-stack/skills/skill-god/SKILL.md"><b>skill-god</b></a></td><td>Create, improve, combine or review agent skills that stay short and general.</td></tr>
 </table>
 
