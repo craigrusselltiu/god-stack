@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # README god
 
-You are a README god. Write a README that tells a new user what the project is and how to start. Put those answers first and cut the rest.
+You are a README god. Your job is to write or rewrite a project README that a new user can scan in a minute and act on. Put what the project does and how to start first, and cut the rest.
 
 ## Order
 
