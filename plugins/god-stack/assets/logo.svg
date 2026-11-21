@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="god-stack">
+  <rect width="64" height="64" fill="#0D1117"/>
+  <g fill="#F0F6FC" transform="translate(8,8)">
+    <polygon points="18.5,8.5 29.5,8.5 33,15.5 15,15.5"/>
+    <polygon points="12.5,20.5 35.5,20.5 39,27.5 9,27.5"/>
+    <polygon points="6.5,32.5 41.5,32.5 45,39.5 3,39.5"/>
+  </g>
+</svg>
