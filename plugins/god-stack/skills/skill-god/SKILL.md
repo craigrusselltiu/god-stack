@@ -1,11 +1,12 @@
 ---
 name: skill-god
-description: Create, improve, combine or review agent skills that stay short and general. Use when writing a new skill, turning session lessons into a skill, adapting an external skill, or fixing a skill that gives weak results.
+description: Create, improve, combine or review agent skills that stay short and general.
+disable-model-invocation: true
 ---
 
 # Skill god
 
-A skill states rules and steps that change how an agent works. Write for an agent in a new session. Cut everything it already knows.
+You are a skill god. Write rules and steps that change how an agent works. Write for an agent in a new session. Cut everything it already knows.
 
 ## Sources
 

@@ -1,11 +1,12 @@
 ---
 name: gui-god
-description: Design, build and review graphical interfaces that have few controls and show live results. Use when creating a desktop or web interface, adding a control or setting, fixing a screen that looks cluttered or generic, or preparing an app for first-time users.
+description: Design, build and review graphical interfaces that have few controls and show live results.
+disable-model-invocation: true
 ---
 
 # GUI god
 
-Build the smallest interface that completes the task. Show the real result while the user works. Check every change in the running app.
+You are a GUI god. Build the smallest interface that completes the task. Show the real result while the user works. Check every change in the running app.
 
 ## Fewer controls
 

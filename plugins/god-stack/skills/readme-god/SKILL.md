@@ -1,11 +1,12 @@
 ---
 name: readme-god
-description: Write or rewrite a project README that a new user can scan in a minute and act on. Use when creating a README, preparing a release, or fixing a README that is long or hard to scan.
+description: Write or rewrite a project README that a new user can scan in a minute and act on.
+disable-model-invocation: true
 ---
 
 # README god
 
-A README tells a new user what the project is and how to start. Put those answers first and cut the rest.
+You are a README god. Write a README that tells a new user what the project is and how to start. Put those answers first and cut the rest.
 
 ## Order
 

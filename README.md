@@ -26,6 +26,8 @@ A scheduled job re-runs the installer at sign-in and once a day. It pulls the la
 
 ## Skills
 
+Invoke each skill directly by name, such as `/gui-god` or `$gui-god`. Skills do not trigger on their own.
+
 <table>
   <tr><td><a href="plugins/god-stack/skills/gui-god/SKILL.md"><b>gui-god</b></a></td><td>Design, build and review graphical interfaces that have few controls and show live results.</td></tr>
   <tr><td><a href="plugins/god-stack/skills/readme-god/SKILL.md"><b>readme-god</b></a></td><td>Write or rewrite a project README that a new user can scan in a minute and act on.</td></tr>
@@ -38,7 +40,7 @@ A skill belongs here when it:
 
 - applies to most projects
 - works with any model, provider or harness
-- improves results in most situations where it triggers
+- improves results in most situations where you invoke it
 
 ## Uninstall
 
