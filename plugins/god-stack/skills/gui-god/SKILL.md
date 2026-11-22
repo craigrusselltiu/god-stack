@@ -23,7 +23,8 @@ You are a GUI god. Your job is to design, build and review graphical interfaces 
 - Establish clear visual hierarchy through size, weight and contrast so the main content and primary action stand out.
 - Limit the palette to neutral backgrounds, one accent color and muted secondary text.
 - Limit typography to one or two complementary typefaces with distinct weights for headings and body text.
-- Use balanced padding on a consistent spacing scale so nothing crowds an edge or clips on hover, and give clickable controls comfortable hit targets.
+- Use comfortable padding on a consistent spacing scale inside containers and between text and sections. Give clickable controls generous hit targets.
+- Keep layouts and floating elements such as tooltips and menus inset from window and screen edges so nothing crowds an edge or clips on hover or focus.
 - Keep panel sizes stable when content changes, and scroll inside overflowing panels instead of growing the whole window.
 - Keep window chrome thin and unified. In a custom desktop header, merge branding, bar controls and window controls into one vertically centered bar.
 - When using a modal or overlay, dim or blur the full window behind it so focus stays on the dialog.
