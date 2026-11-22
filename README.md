@@ -8,8 +8,6 @@ god-stack gives coding agent users reusable skills with concrete rules for code 
 
 ## Install
 
-The installer requires `git`, plus `curl` on macOS and Linux.
-
 Windows:
 
 ```powershell
